@@ -1,5 +1,57 @@
+*{
+    background-color: black;
+    
+}
+/* style navbar */
+.navar-container{
+    background-color: blanchedalmond;
+    height:70px;
+    display:flex;
+    align-items: center;
+    justify-content:space-around;
+    justify-content: space-between;
 
-/* style big img */
-.big-img-container{
-    background-image:url ;
+}
+/* style search */
+.search-container{
+justify-content: start;
+padding: 10px;
+margin: 10px;
+}
+/*style buttom search */
+.btn-search{
+    color: blue;
+}
+/* style btn home and log in */
+.mother-buttum{
+    justify-content:end;
+    justify-content:space-around;
+}
+/*  */
+.h1-bigImg-container{
+    background-image: url("https://i.pinimg.com/564x/64/9b/3e/649b3edae04758697d3b487ad242b875.jpg");
+    height:500px;
+    width:100%;
+    background-size: cover;
+    display:flex;
+    align-items:flex-end;
+    justify-content: center;
+    position: relative;
+}
+.name-got{
+    color: white;
+    /* background-color:; */
+}
+
+
+
+
+/* style big img 
+ .big-img-container{ */
+    /* height: 500px; */
+    /* width:auto; 
+ } */
+.pp{
+    height: 400px;
+    width:100%;
 }

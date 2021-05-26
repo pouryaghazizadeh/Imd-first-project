@@ -46,7 +46,10 @@ optionCard.classList = "optionCard"
 
 // give h2 and... to divCard and add give card to main
 divCard.append(h2Card)
+divCard.append(imgCard)
 divCard.append(pCard)
+mainContainer.append(divCard)
+
 
 
 function myApi (){

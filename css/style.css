@@ -1,0 +1,42 @@
+body{
+    background-color: black;
+    
+}
+/* style navbar */
+.navar-container{
+    background-color:rgb(241, 235, 235);
+    height:70px;
+    width:150%;
+    display:flex;
+    align-items: center;
+    
+    flex-wrap:wrap;
+    padding:0;
+
+}
+.btn-s-h{
+    
+    justify-content:space-between;
+    
+}
+/* style search */
+.search-container{
+/* justify-content: start; */
+padding: 10px;
+margin: 10px;
+}
+/*style buttom search */
+.btn-search{
+    color: blue;
+}
+
+
+/* style big img 
+ *//* g-img-container{ */
+    /* height: 500px; */
+    /* width:auto; 
+  }  */
+/* .pp{
+    height: 400px;
+    width:100%;
+} */

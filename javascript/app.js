@@ -17,7 +17,16 @@ Hcontainer.append(header)
 
 ///// creat main dive and add to Hcontainer//////
 const mainContainer = document.createElement("div")
+mainContainer.style.display =" flex"
+mainContainer.style.flexDirection="wrap"
+mainContainer.style.flexWrap = "wrap"
+mainContainer.style.justifyContent="space-between"
+mainContainer.style.margin="3px"
+mainContainer.style.marginTop="2px"
 Hcontainer.append( mainContainer)
+
+
+
 //////////creat a search////////
 const search = document.createElement("input")
 search.type="search";
@@ -27,33 +36,43 @@ search.id="search-class";
 header.append(search);
 console.log(search);
 
+/////////// get api and make card//////////////
 
-// select
-const select=document.createElement("select")
-// get api and make card
-for(data of myApi){
-    let divCard = document.createElement("div");
-    let h2Card = document.createElement("h2");
-    let pCard = document.createElement("p");
-    let imgCard = creatElement("img")
-    let optionCard = document.createElement("option")
+const callDataApi = myApi ()
+for(dataAPI of callDataApi){
+    // //make h2 and append word////
+    const h2Card = document.createElement("h2")
+    let dataNameApi = dataAPI.name
+    h2Card.append(dataNameApi)
+    // // make img and append img////
+    let imgCard = document.createElement("img")
+    imgCard.src = dataAPI.image.original
+    imgCard.style.width = "100px"
+    imgCard.style.height = "100px"
+
+    // let dataImgApi = dataAPI.image.original
+    // //make p ////
+    let pCard =document.createElement("p")
+    let dataSummaryApi =dataAPI.summary
+    pCard.append(dataSummaryApi)
+    // // make card ////
+    let divCard = document.createElement("div")
+    divCard.append(h2Card)
+    divCard.append(imgCard)
+    divCard.append(pCard)
+    
+    divCard.style.height = "300px"
+    divCard.style.width = "400px"
+    divCard.style.backgroundColor = "blue"
+    
+    // divCard.style.
+    mainContainer.append(divCard)
+
 
 }
-divCard.classList ="divCard"
-h2Card.classList="h2Card"
-pCard.classList = "pCard"
-optionCard.classList = "optionCard"
-
-// give h2 and... to divCard and add give card to main
-divCard.append(h2Card)
-divCard.append(imgCard)
-divCard.append(pCard)
-mainContainer.append(divCard)
-
-
 
 function myApi (){
-    [
+     return[
         {
             "id": 4952,
             "url": "https://www.tvmaze.com/episodes/4952/game-of-thrones-1x01-winter-is-coming",
@@ -1661,4 +1680,5 @@ function myApi (){
             }
         }
     ]
+    
 }

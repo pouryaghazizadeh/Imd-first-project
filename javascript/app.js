@@ -1,27 +1,27 @@
 
-/////// make mother div and give id and class/////
+/******** make mother div and give id and class ********/ 
 const Hcontainer = document.createElement("div")
 Hcontainer.style="flex"
 Hcontainer.classList="container"
 Hcontainer.id="container"
 Hcontainer.backgroundColor ="black"
 document.body.append(Hcontainer)
-
-////// add one div to mother div for header and nav////
+/******** ********/
+/******** add one div to mother div for header(search,slector) ********/
 const header = document.createElement("div")
 header.classList="heading"
 header.display = "flex"
-header.justifyContent = "center"
+// header.justifyContent ="center"
 header.id = "heading"
 header.style.width="100%"
 header.style.height="150px"
 header.style.margin = "none"
-
 header.style.backgroundColor="black"
 Hcontainer.append(header)
 
-///// creat main dive and add to Hcontainer//////
+///// creat main dive and add to mother div//////
 const mainContainer = document.createElement("div")
+mainContainer.id=("mainContainer")
 mainContainer.style.display =" flex"
 mainContainer.style.flexDirection="wrap"
 mainContainer.style.flexWrap = "wrap"
@@ -47,26 +47,59 @@ const makeSearch = document.createElement("input")
  makeSearch.placeholder = "search"
  makeSearch.id = "search-id"
  header.append(makeSearch)
-const divSearch = document.querySelector("#divSearch")
-const search = document.querySelector("#search-class")
-const btnSearch = document.querySelector("#btn-search")
-const callCard = document.querySelectorAll(".div-card")
-header.append(divSearch);
-////// sssssssss///////
-// search.addEventListener("keyup",(e)=>{
-    // const search = document.querySelector("#search-class")
-    // let dataClaient =search.e.target
-    // dataClaient =dataClaient.value.toLowerCace()
-    // console.log( dataClaient)
-//     const getNEwCArd = document.querySelectorAll(".div-card")
-//     for(let i =0;i< getNEwCArd.lenght;i++){
-//         if( getNEwCArd[i].innerHTML.toLowerCase().includes( dataClaient)){
-//             divCard[i].style.display = "block"
-//         }else{
-//             divCard[i].style.display = "none"
-//         }
+
+// ///add event to search
+const getIdSearch = document.getElementById("search-id")
+getIdSearch.addEventListener("heyup", function () {
+    const getIdSearch = document.getElementById("search-id")
+    getIdSearch= getIdSearch.value.toLowerCase();
+    let divs = document.getElementsByClassName("div-card");
+    for (let i = 0; i < divs.length; i++) {
+        if (!divs[i].innerHTML.toLowerCase().includes(getIdSearch)) {
+            divs[i].style.display = "none";
+          } else {
+            divs[i].style.display = "block";
+          }
+    }
+})
+
+
+
+// const divSearch = document.querySelector("#divSearch")
+// const search = document.querySelector("#search-class")
+
+// const callCard = document.querySelectorAll(".div-card")
+// header.append(divSearch);
+// ////// make select///////
+
+const creatselect = document.createElement("select")
+ creatselect.className ="select-class"
+ header.append( creatselect)
+// creatselect.addEventListener("change",()=>{
+//     let divs = document.getElementsByClassName("div-card")
+//     let callOption =getElementsByClassName("option")
+//     let select = creatselect.options[creatselect.selectedIndex].text()
+//     console.log(select);
+// }
+
+
+
+// creatselect.addEventListener("change", function () {
+//   let divs = document.getElementsByClassName("div-card");
+//   let getOption = document.getElementsByClassName("option");
+// //   let select = creatselect.getOption[creatselect.selectedIndex].text;
+//   let select = creatselect[creatselect.selectedIndex];
+// console.log(select)
+//   for (let i = 0; i < creatselect.length; i++) {
+//     if (getOption[i].value == select) {
+//       divs[i].style.display = "block";
+//       mainContainer.style.display = "flex";
+//       mainContainer.style.justifyContent = "center";
+//     } else {
+//       divs[i].style.display = "none";
 //     }
-// })
+//   }
+// });
 
 /////////// get api and make card//////////////
 
@@ -77,19 +110,21 @@ const fApi = ()=>{
         for(dataAPI of callDataApi){
         // //make h2 and append word////
         const h2Card = document.createElement("h2")
-        // let dataNameApi
         h2Card.innerHTML = `${dataAPI.name} S${dataAPI.season}E${dataAPI.number}`
         // h2Card.append(dataNameApi)
-        // // make img and append img////
+        ///// make img and append img/////
         let imgCard = document.createElement("img")
         imgCard.src = dataAPI.image.original
         imgCard.style.width = "290px"
         imgCard.style.height = "200px"
-        
         imgCard.style.display = "flex"
-        
-    
+        /////  make  option  /////
+        const makeAoption = document.createElement("option")
+        makeAoption.innerHTML = `${dataAPI.name} S${dataAPI.season}E${dataAPI.number}`;
+        makeAoption.className = "option";
+         creatselect.append(makeAoption)
         // let dataImgApi = dataAPI.image.original
+
         // //make p ////
         let pCard =document.createElement("p")
         let dataSummaryApi =dataAPI.summary

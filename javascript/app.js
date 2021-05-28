@@ -4,15 +4,20 @@ const Hcontainer = document.createElement("div")
 Hcontainer.style="flex"
 Hcontainer.classList="container"
 Hcontainer.id="container"
+Hcontainer.backgroundColor ="black"
 document.body.append(Hcontainer)
 
 ////// add one div to mother div for header and nav////
 const header = document.createElement("div")
 header.classList="heading"
+header.display = "flex"
+header.justifyContent = "center"
 header.id = "heading"
 header.style.width="100%"
-header.style.height="200px"
-header.style.backgroundColor="white"
+header.style.height="150px"
+header.margin = "none"
+header.marginTop = "none"
+header.style.backgroundColor="black"
 Hcontainer.append(header)
 
 ///// creat main dive and add to Hcontainer//////
@@ -21,20 +26,36 @@ mainContainer.style.display =" flex"
 mainContainer.style.flexDirection="wrap"
 mainContainer.style.flexWrap = "wrap"
 mainContainer.style.justifyContent="space-between"
-mainContainer.style.margin="3px"
-mainContainer.style.marginTop="2px"
+mainContainer.style.margin="2px"
+mainContainer.style.alignContent = "space-between"
 Hcontainer.append( mainContainer)
+///////////////////GOT img and add to main////////////
+const gotImg = document.querySelector("#got-img")
+gotImg.width = "100px"
+gotImg.height = "100px" 
+mainContainer.append(gotImg)
 
-
-
-//////////creat a search////////
-const search = document.createElement("input")
-search.type="search";
-search.placeHolder="type";
-search.classList="search-class";
-search.id="search-class";
-header.append(search);
-console.log(search);
+//////////get search, btn , div //////////
+const divSearch = document.querySelector("#divSearch")
+const search = document.querySelector("#search-class")
+const btnSearch = document.querySelector("#btn-search")
+const callCard = document.querySelectorAll(".div-card")
+header.append(divSearch);
+////// sssssssss///////
+search.addEventListener("keyup",(e)=>{
+    const search = document.querySelector("#search-class")
+    let dataClaient =search.e.target
+    dataClaient =dataClaient.value.toLowerCace()
+    console.log( dataClaient)
+//     const getNEwCArd = document.querySelectorAll(".div-card")
+//     for(let i =0;i< getNEwCArd.lenght;i++){
+//         if( getNEwCArd[i].innerHTML.toLowerCase().includes( dataClaient)){
+//             divCard[i].style.display = "block"
+//         }else{
+//             divCard[i].style.display = "none"
+//         }
+//     }
+})
 
 /////////// get api and make card//////////////
 
@@ -42,13 +63,16 @@ const callDataApi = myApi ()
 for(dataAPI of callDataApi){
     // //make h2 and append word////
     const h2Card = document.createElement("h2")
-    let dataNameApi = dataAPI.name
+    let dataNameApi = `${dataAPI.name} S${dataAPI.season}E${dataAPI.number}`
     h2Card.append(dataNameApi)
     // // make img and append img////
     let imgCard = document.createElement("img")
     imgCard.src = dataAPI.image.original
-    imgCard.style.width = "100px"
-    imgCard.style.height = "100px"
+    imgCard.style.width = "290px"
+    imgCard.style.height = "200px"
+    imgCard.style.padding = "em"
+    imgCard.style.display = "flex"
+    
 
     // let dataImgApi = dataAPI.image.original
     // //make p ////
@@ -60,14 +84,15 @@ for(dataAPI of callDataApi){
     divCard.append(h2Card)
     divCard.append(imgCard)
     divCard.append(pCard)
-    
-    divCard.style.height = "300px"
-    divCard.style.width = "400px"
+    divCard.display = "flex"
+    divCard.style.margin = "20px"
+    divCard.style.height = "500px"
+    divCard.style.width = "300px"
+    divCard.style.classList = "div-card"
     divCard.style.backgroundColor = "blue"
     
-    // divCard.style.
+    
     mainContainer.append(divCard)
-
 
 }
 
@@ -1680,5 +1705,4 @@ function myApi (){
             }
         }
     ]
-    
 }

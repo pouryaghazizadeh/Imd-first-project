@@ -15,8 +15,8 @@ header.justifyContent = "center"
 header.id = "heading"
 header.style.width="100%"
 header.style.height="150px"
-header.margin = "none"
-header.marginTop = "none"
+header.style.margin = "none"
+
 header.style.backgroundColor="black"
 Hcontainer.append(header)
 
@@ -26,27 +26,38 @@ mainContainer.style.display =" flex"
 mainContainer.style.flexDirection="wrap"
 mainContainer.style.flexWrap = "wrap"
 mainContainer.style.justifyContent="space-between"
-mainContainer.style.margin="2px"
+mainContainer.style.margin="1px"
 mainContainer.style.alignContent = "space-between"
 Hcontainer.append( mainContainer)
 ///////////////////GOT img and add to main////////////
 const gotImg = document.querySelector("#got-img")
-gotImg.width = "100px"
-gotImg.height = "100px" 
+// gotImg.styly.width = "100px"
+// gotImg.style.height = "100px" 
 mainContainer.append(gotImg)
 
-//////////get search, btn , div //////////
+
+
+// 
+
+
+
+//////////creat search, btn , div //////////
+const makeSearch = document.createElement("input")
+ makeSearch.type = "search"
+ makeSearch.placeholder = "search"
+ makeSearch.id = "search-id"
+ header.append(makeSearch)
 const divSearch = document.querySelector("#divSearch")
 const search = document.querySelector("#search-class")
 const btnSearch = document.querySelector("#btn-search")
 const callCard = document.querySelectorAll(".div-card")
 header.append(divSearch);
 ////// sssssssss///////
-search.addEventListener("keyup",(e)=>{
-    const search = document.querySelector("#search-class")
-    let dataClaient =search.e.target
-    dataClaient =dataClaient.value.toLowerCace()
-    console.log( dataClaient)
+// search.addEventListener("keyup",(e)=>{
+    // const search = document.querySelector("#search-class")
+    // let dataClaient =search.e.target
+    // dataClaient =dataClaient.value.toLowerCace()
+    // console.log( dataClaient)
 //     const getNEwCArd = document.querySelectorAll(".div-card")
 //     for(let i =0;i< getNEwCArd.lenght;i++){
 //         if( getNEwCArd[i].innerHTML.toLowerCase().includes( dataClaient)){
@@ -55,47 +66,55 @@ search.addEventListener("keyup",(e)=>{
 //             divCard[i].style.display = "none"
 //         }
 //     }
-})
+// })
 
 /////////// get api and make card//////////////
 
-const callDataApi = myApi ()
-for(dataAPI of callDataApi){
-    // //make h2 and append word////
-    const h2Card = document.createElement("h2")
-    let dataNameApi = `${dataAPI.name} S${dataAPI.season}E${dataAPI.number}`
-    h2Card.append(dataNameApi)
-    // // make img and append img////
-    let imgCard = document.createElement("img")
-    imgCard.src = dataAPI.image.original
-    imgCard.style.width = "290px"
-    imgCard.style.height = "200px"
-    imgCard.style.padding = "em"
-    imgCard.style.display = "flex"
+const fApi = ()=>{
+    try{
+        const callDataApi = myApi () 
+        console.log()
+        for(dataAPI of callDataApi){
+        // //make h2 and append word////
+        const h2Card = document.createElement("h2")
+        // let dataNameApi
+        h2Card.innerHTML = `${dataAPI.name} S${dataAPI.season}E${dataAPI.number}`
+        // h2Card.append(dataNameApi)
+        // // make img and append img////
+        let imgCard = document.createElement("img")
+        imgCard.src = dataAPI.image.original
+        imgCard.style.width = "290px"
+        imgCard.style.height = "200px"
+        
+        imgCard.style.display = "flex"
+        
     
-
-    // let dataImgApi = dataAPI.image.original
-    // //make p ////
-    let pCard =document.createElement("p")
-    let dataSummaryApi =dataAPI.summary
-    pCard.append(dataSummaryApi)
-    // // make card ////
-    let divCard = document.createElement("div")
-    divCard.append(h2Card)
-    divCard.append(imgCard)
-    divCard.append(pCard)
-    divCard.display = "flex"
-    divCard.style.margin = "20px"
-    divCard.style.height = "500px"
-    divCard.style.width = "300px"
-    divCard.style.classList = "div-card"
-    divCard.style.backgroundColor = "blue"
+        // let dataImgApi = dataAPI.image.original
+        // //make p ////
+        let pCard =document.createElement("p")
+        let dataSummaryApi =dataAPI.summary
+        pCard.append(dataSummaryApi)
+        // // make card ////
+        let divCard = document.createElement("div")
+        divCard.append(h2Card)
+        divCard.append(imgCard)
+        divCard.append(pCard)
+        divCard.display = "flex"
+        divCard.style.margin = "20px"
+        divCard.style.height = "500px"
+        divCard.style.width = "300px"
+        divCard.className = "div-card"
+        divCard.style.backgroundColor = "blue"
+        
+        
+        mainContainer.append(divCard)
     
-    
-    mainContainer.append(divCard)
-
+        }  
+    }catch(e){
+        console.log("errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr")
+    }
 }
-
+fApi()
 function myApi (){
      return[
         {

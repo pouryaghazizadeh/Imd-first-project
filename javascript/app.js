@@ -6,11 +6,14 @@ Hcontainer.id="container"
 Hcontainer.style.backgroundColor ="#111"
 document.body.append(Hcontainer)
 
+
 /******** add one div to mother div for header(search,slector) ********/
+
 
 const header = document.createElement("div")
 header.classList="heading"
 header.display = "flex"
+
 
 header.alignItems ="center"
 header.id = "heading"
@@ -22,6 +25,7 @@ Hcontainer.append(header)
 ///// creat main dive and add to mother div//////
 const mainContainer = document.createElement("div")
 mainContainer.id=("mainContainer")
+
 mainContainer.style.display =" flex"
 mainContainer.style.flexDirection="wrap"
 mainContainer.style.flexWrap = "wrap"
@@ -30,6 +34,7 @@ mainContainer.justifyContent = "space-evently"
 mainContainer.style.margin="1px"
 mainContainer.style.alignContent = "space-between"
 Hcontainer.append( mainContainer)
+
 
 ///////////////////GOT img and add to main////////////
 const gotImg = document.querySelector("#got-img")
@@ -1750,3 +1755,4 @@ function myApi (){
         }
     ]
 }
+

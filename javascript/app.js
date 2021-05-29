@@ -16,7 +16,7 @@ header.alignItems ="center"
 header.id = "heading"
 header.style.width="100%"
 header.style.height="150px"
-header.style.backgroundColor=""
+// header.style.backgroundColor=""
 Hcontainer.append(header)
 
 ///// creat main dive and add to mother div//////
@@ -128,7 +128,7 @@ const fApi = ()=>{
         divCard.style.width = "310px"
         divCard.className = "div-card"
         // divCard.style.justifyContent = "space-evently"
-        // divCard.style.padding = "10px"
+        
         divCard.style.backgroundColor = "white"
         
         

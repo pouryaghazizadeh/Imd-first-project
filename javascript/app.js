@@ -2,11 +2,11 @@
 const Hcontainer = document.createElement("div")
 Hcontainer.classList="container"
 Hcontainer.id="container"
-Hcontainer.style.width = "150%"
-Hcontainer.style.padding = "1px"
+Hcontainer.style.width = "115%"
 // Hcontainer.style.backgroundColor ="#111"
-Hcontainer.style.backgroundColor ="red"
+Hcontainer.style.backgroundColor ="black"
 document.body.append(Hcontainer)
+
 /******** add one div to mother div for header(search,slector) ********/
 
 
@@ -19,16 +19,13 @@ header.style.justifyContent = "space-around"
 // header.style.alignItems =""
 header.id = "heading"
 header.style.width="100%"
-header.style.padding = "20px"
-
-// header.style.backgroundColor=""
 Hcontainer.append(header)
-// header.style.height="150px"
+
 
 ///////////////////GOT img and add to main////////////
 const gotImg = document.querySelector("#got-img")
 gotImg.style.width = "100%"
-gotImg.style.height = "250px" 
+gotImg.style.height = "300px" 
 Hcontainer.append(gotImg)
 
 
@@ -38,12 +35,11 @@ const mainContainer = document.createElement("div")
 mainContainer.id=("mainContainer")
 
 mainContainer.style.display =" flex"
-// mainContainer.style.flexDirection="wrap"
+
 mainContainer.style.flexWrap = "wrap"
 mainContainer.style.justifyContent="space-between"
+mainContainer.style.justifyContent="space-around"
 mainContainer.style.justifyContent = "center"
-// mainContainer.style.margin="50px"
-mainContainer.style.alignContent = "center"
 Hcontainer.append( mainContainer)
 
 
@@ -109,8 +105,8 @@ const fApi = ()=>{
         // //make h2 and append word////
         const h2Card = document.createElement("h2")
         h2Card.style.margin = "9px"
+        h2Card.style.color ="white"
         h2Card.innerHTML = `${dataAPI.name} S${dataAPI.season}E${dataAPI.number}`
-        // h2Card.append(dataNameApi)
         ///// make img and append img/////
         let imgCard = document.createElement("img")
         imgCard.src = dataAPI.image.original
@@ -126,11 +122,11 @@ const fApi = ()=>{
         makeAoption.innerHTML = `${dataAPI.name} S${dataAPI.season}E${dataAPI.number}`;
         makeAoption.className = "option";
          creatselect.append(makeAoption)
-        // let dataImgApi = dataAPI.image.original
 
         // //make p ////
         let pCard =document.createElement("p")
         pCard.style.margin = "9px"
+        pCard.style.color ="white"
         let dataSummaryApi =dataAPI.summary
         pCard.append(dataSummaryApi)
         // // make card ////
@@ -143,11 +139,8 @@ const fApi = ()=>{
         divCard.style.height = "500px"
         divCard.style.width = "310px"
         divCard.className = "div-card"
-        // divCard.style.justifyContent = "space-evently"
-        
-        divCard.style.backgroundColor = "white"
-        
-        
+
+        divCard.style.backgroundColor = "#1a1a1a"
         mainContainer.append(divCard)
     
         }  

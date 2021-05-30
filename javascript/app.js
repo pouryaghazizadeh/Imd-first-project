@@ -1,47 +1,50 @@
 /******** make mother div and give id and class ********/ 
 const Hcontainer = document.createElement("div")
-Hcontainer.style="flex"
 Hcontainer.classList="container"
 Hcontainer.id="container"
-Hcontainer.style.backgroundColor ="#111"
+Hcontainer.style.width = "150%"
+Hcontainer.style.padding = "1px"
+// Hcontainer.style.backgroundColor ="#111"
+Hcontainer.style.backgroundColor ="red"
 document.body.append(Hcontainer)
-
-
 /******** add one div to mother div for header(search,slector) ********/
 
 
 const header = document.createElement("div")
 header.classList="heading"
-header.display = "flex"
-
-
-header.alignItems ="center"
+header.style.display = "flex"
+header.style.flexWrap = "wrap"
+header.style.justifyContent = "center"
+header.style.justifyContent = "space-around"
+// header.style.alignItems =""
 header.id = "heading"
 header.style.width="100%"
-header.style.height="150px"
+header.style.padding = "20px"
+
 // header.style.backgroundColor=""
 Hcontainer.append(header)
+// header.style.height="150px"
+
+///////////////////GOT img and add to main////////////
+const gotImg = document.querySelector("#got-img")
+gotImg.style.width = "100%"
+gotImg.style.height = "250px" 
+Hcontainer.append(gotImg)
+
+
 
 ///// creat main dive and add to mother div//////
 const mainContainer = document.createElement("div")
 mainContainer.id=("mainContainer")
 
 mainContainer.style.display =" flex"
-mainContainer.style.flexDirection="wrap"
+// mainContainer.style.flexDirection="wrap"
 mainContainer.style.flexWrap = "wrap"
 mainContainer.style.justifyContent="space-between"
-mainContainer.justifyContent = "space-evently"
-mainContainer.style.margin="1px"
-mainContainer.style.alignContent = "space-between"
+mainContainer.style.justifyContent = "center"
+// mainContainer.style.margin="50px"
+mainContainer.style.alignContent = "center"
 Hcontainer.append( mainContainer)
-
-
-///////////////////GOT img and add to main////////////
-const gotImg = document.querySelector("#got-img")
-// gotImg.styly.width = "100px"
-// gotImg.style.height = "100px" 
-mainContainer.append(gotImg)
-
 
 
 
@@ -51,6 +54,9 @@ const makeSearch = document.createElement("input")
  makeSearch.type = "search"
  makeSearch.placeholder = "search"
  makeSearch.id = "search-id"
+ makeSearch.style.width = "289px"
+ makeSearch.style.height = "20px"
+ makeSearch.style.margin = "10px"
  header.append(makeSearch)
 
 // ///add event to search
@@ -73,6 +79,8 @@ getIdSearch.addEventListener("keyup", function () {
 
 const creatselect = document.createElement("select")
  creatselect.className ="select-class"
+ creatselect.style.height = "20px"
+ creatselect.style.margin = "10px"
  header.append( creatselect)
 
 creatselect.addEventListener("change", function () {
@@ -100,6 +108,7 @@ const fApi = ()=>{
         for(dataAPI of callDataApi){
         // //make h2 and append word////
         const h2Card = document.createElement("h2")
+        h2Card.style.margin = "9px"
         h2Card.innerHTML = `${dataAPI.name} S${dataAPI.season}E${dataAPI.number}`
         // h2Card.append(dataNameApi)
         ///// make img and append img/////
@@ -107,6 +116,7 @@ const fApi = ()=>{
         imgCard.src = dataAPI.image.original
         imgCard.style.width = "290px"
         imgCard.style.height = "200px"
+        imgCard.style.margin = "9px"
         imgCard.style.display = "flex"
         imgCard.style.border = "6px"
         imgCard.style.border ="solid 1px black"
@@ -120,6 +130,7 @@ const fApi = ()=>{
 
         // //make p ////
         let pCard =document.createElement("p")
+        pCard.style.margin = "9px"
         let dataSummaryApi =dataAPI.summary
         pCard.append(dataSummaryApi)
         // // make card ////
@@ -127,7 +138,7 @@ const fApi = ()=>{
         divCard.append(h2Card)
         divCard.append(imgCard)
         divCard.append(pCard)
-        divCard.display = "flex"
+        // divCard.style.display = "flex"
         divCard.style.margin = "30px"
         divCard.style.height = "500px"
         divCard.style.width = "310px"

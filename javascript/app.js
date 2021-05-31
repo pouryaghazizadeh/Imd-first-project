@@ -134,12 +134,10 @@ const fApi = ()=>{
         divCard.append(h2Card)
         divCard.append(imgCard)
         divCard.append(pCard)
-        // divCard.style.display = "flex"
         divCard.style.margin = "30px"
         divCard.style.height = "500px"
         divCard.style.width = "310px"
         divCard.className = "div-card"
-
         divCard.style.backgroundColor = "#1a1a1a"
         mainContainer.append(divCard)
     

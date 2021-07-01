@@ -2,8 +2,7 @@
 const Hcontainer = document.createElement("div")
 Hcontainer.classList="container"
 Hcontainer.id="container"
-Hcontainer.style.width = "115%"
-// Hcontainer.style.backgroundColor ="#111"
+Hcontainer.style.width = "100%"
 Hcontainer.style.backgroundColor ="black"
 document.body.append(Hcontainer)
 
@@ -23,8 +22,12 @@ Hcontainer.append(header)
 
 
 ///////////////////GOT img and add to main////////////
-const gotImg = document.querySelector("#got-img")
+// const gotImg = document.querySelector("#got-img")
+const gotImg = document.createElement("div")
+gotImg.style.backgroundImage = "url(https://c4.wallpaperflare.com/wallpaper/452/290/449/tv-game-of-thrones-jon-snow-kit-harington-wallpaper-preview.jpg)"
 gotImg.style.width = "100%"
+gotImg.style.backgroundRepeat ="no-repeat"
+gotImg.style.backgroundSize ="cover"
 gotImg.style.height = "300px" 
 Hcontainer.append(gotImg)
 
